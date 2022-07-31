@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:google_clone/widgets/link_text.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../utils/colors.dart';
 
 class SearchResultComponent extends StatelessWidget {
-  final Uri linkToGo;
+  final String linkToGo;
   final String link;
   final String text;
   final String desc;
@@ -39,8 +40,8 @@ class SearchResultComponent extends StatelessWidget {
               fontSize: 20,
             ),
             onTap: () async {
-              if (await canLaunchUrl(linkToGo)) {
-                await launchUrl(linkToGo);
+              if (await canLaunchUrlString(linkToGo)) {
+                await launchUrlString(linkToGo);
               }
             },
           ),

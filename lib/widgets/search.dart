@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_clone/utils/colors.dart';
 
+import '../screens/search_screen.dart';
+
 class Search extends StatelessWidget {
   const Search({Key? key}) : super(key: key);
 
@@ -49,6 +51,17 @@ class Search extends StatelessWidget {
                 ),
               ),
             ),
+            onFieldSubmitted: (val) {
+              if (val != "") {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => SearchScreen(
+                      searchQuery: val.trim(),
+                    ),
+                  ),
+                );
+              }
+            },
           ),
         ),
       ],
